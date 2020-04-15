@@ -16,6 +16,7 @@
     Fyll: <input id="fyllTaco" type="radio" name="fyll" onchange="info()" />Taco
     <input id="fyllKylling" type="radio" name="fyll" onchange="info()" />Kylling
     <input id="fyllPepperoni" type="radio" name="fyll" onchange="info()" />Pepperoni<br />
+    <input id="fyllVegetar" type="radio" name="fyll" onchange="info()" />Vegetar<br />
 
     Størrelse: <input id="stor" type="radio" name="str" onchange="info()" />Stor
     <input id="middels" type="radio" name="str" onchange="info()" />Middels
@@ -34,13 +35,14 @@
         var fyllTaco = document.getElementById('fyllTaco');
         var fyllKylling = document.getElementById('fyllKylling');
         var fyllPepperoni = document.getElementById('fyllPepperoni');
+        var fyllVegetar = document.getElementById('fyllVegetar');
         var strStor = document.getElementById('stor');
         var strMiddels = document.getElementById('middels');
         var strLiten = document.getElementById('liten');
 
         function info() {
             if ((bunnTykk.checked || bunnTynn.checked) &&
-                (fyllTaco.checked || fyllKylling.checked || fyllPepperoni.checked) &&
+                (fyllTaco.checked || fyllKylling.checked || fyllPepperoni.checked || fyllVegetar.checked) &&
                 (strStor.checked || strMiddels.checked || strLiten.checked)) {
                 infoDiv.innerHTML = 'Du har fylt ut alt og er klar til å bestille!';
                 btnBestill.disabled = false;
@@ -53,7 +55,7 @@
                 if (!bunnTykk.checked && !bunnTynn.checked) {
                     infoDiv.innerHTML += '<li>bunn</li>';
                 }
-                if (!fyllTaco.checked && !fyllKylling.checked && !fyllPepperoni.checked) {
+                if (!fyllTaco.checked && !fyllKylling.checked && !fyllPepperoni.checked && !fyllVegetar.checked) {
                     infoDiv.innerHTML += '<li>fyll</li>';
                 }
                 if (!strStor.checked && !strMiddels.checked && !strLiten.checked) {
