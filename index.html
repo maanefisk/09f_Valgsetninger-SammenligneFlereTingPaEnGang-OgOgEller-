@@ -22,6 +22,9 @@
     <input id="middels" type="radio" name="str" onchange="info()" />Middels
     <input id="liten" type="radio" name="str" onchange="info()" />Liten<br />
 
+    Form: <input id="firkantet" type="radio" name="form" onchange="info()" />Firkantet
+    <input id="rund" type="radio" name="form" onchange="info()" />Rund<br/>
+
     <button id="bestill" disabled="" onclick="alert('Bestilt!');">Bestill</button>
     <ul>
         <li>Oppgave: Legg til et fyll til</li>
@@ -39,11 +42,14 @@
         var strStor = document.getElementById('stor');
         var strMiddels = document.getElementById('middels');
         var strLiten = document.getElementById('liten');
+        var formFirkantet = document.getElementById('firkantet');
+        var formRund = document.getElementById('rund');
 
         function info() {
             if ((bunnTykk.checked || bunnTynn.checked) &&
                 (fyllTaco.checked || fyllKylling.checked || fyllPepperoni.checked || fyllVegetar.checked) &&
-                (strStor.checked || strMiddels.checked || strLiten.checked)) {
+                (strStor.checked || strMiddels.checked || strLiten.checked) &&
+                (formFirkantet.checked || formRund.checked)) {
                 infoDiv.innerHTML = 'Du har fylt ut alt og er klar til å bestille!';
                 btnBestill.disabled = false;
             } else {
@@ -60,6 +66,9 @@
                 }
                 if (!strStor.checked && !strMiddels.checked && !strLiten.checked) {
                     infoDiv.innerHTML += '<li>størrelse</li>';
+                }
+                if (!formFirkantet.checked && !formRund.checked) {
+                    infoDiv.innerHTML += '<li>form</li>';
                 }
             }
         }
